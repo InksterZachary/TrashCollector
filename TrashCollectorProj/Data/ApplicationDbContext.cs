@@ -4,11 +4,15 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TrashCollectorProj.Models;
 
 namespace TrashCollectorProj.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Address> Addresses { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -16,14 +20,9 @@ namespace TrashCollectorProj.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.Entity<IdentityRole>()
-            .HasData(
-            new IdentityRole
-            {
-                Name = "Admin",
-                NormalizedName = "ADMIN"
-            }
-            );
+            builder.Entity<IdentityRole>().HasData(new IdentityRole{Name = "Employee",NormalizedName = "ADMIN"});
+            base.OnModelCreating(builder);
+            builder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "Customer", NormalizedName = "USER" });
         }
 
     }

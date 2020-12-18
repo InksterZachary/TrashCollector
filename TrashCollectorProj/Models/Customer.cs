@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrashCollectorProj.Models
 {
-    public class Employee
+    public class Customer
     {
         [Key]
         public int Id { get; set; }
