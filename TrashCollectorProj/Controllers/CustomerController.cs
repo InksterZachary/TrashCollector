@@ -5,48 +5,37 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TrashCollectorProj.Data;
-using TrashCollectorProj.Models;
 
 namespace TrashCollectorProj.Controllers
 {
-    [Authorize(Roles="Employee")]
-    public class EmployeeController : Controller
+        [Authorize(Roles = "Customer")]
+        public class CustomerController : Controller
     {
-        private ApplicationDbContext _context;
-        public EmployeeController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
-
-        // GET: EmployeeController
+        // GET: CustomerController
         public ActionResult Index()
         {
-            List<Customer> allCustomers = _context.Customers.ToList();
-            return View(allCustomers);
+            return View();
         }
 
-        // GET: EmployeeController/Details/5
+        // GET: CustomerController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: EmployeeController/Create
+        // GET: CustomerController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: EmployeeController/Create
+        // POST: CustomerController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Employee employee)
+        public ActionResult Create(IFormCollection collection)
         {
             try
             {
-                _context.Employees.Add(employee);
-                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -55,13 +44,13 @@ namespace TrashCollectorProj.Controllers
             }
         }
 
-        // GET: EmployeeController/Edit/5
+        // GET: CustomerController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: EmployeeController/Edit/5
+        // POST: CustomerController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -76,13 +65,13 @@ namespace TrashCollectorProj.Controllers
             }
         }
 
-        // GET: EmployeeController/Delete/5
+        // GET: CustomerController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: EmployeeController/Delete/5
+        // POST: CustomerController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
