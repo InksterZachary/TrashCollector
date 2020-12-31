@@ -1,8 +1,91 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<style>
+    .worker-left{
+        border-radius: 0 25px 25px 0;
+        max-width: 80%;
+        max-height: 80%;
+    }
+    .worker-right{
+        border-radius: 25px 0 0 25px;
+        max-width:70%;
+        max-height:70%;
+    }
+    .worker-right-bigger{
+        border-radius: 25px 0 0 25px;
+        max-width: 45%;
+        max-height: 45%;
+    }
+    .distance-down {
+        margin-bottom: 50px;
+    }
+    .distance-up {
+        margin-top: 50px;
+    }
+    .top-line{
+        border-top:dashed 3px lawngreen;
+        padding-top:40px;
+    }
+</style>
+<body>
+    <div class="text-center">
+        <h1 class="display-4">Welcome to TrashCo</h1>
+        <p class="distance-down">Tired of amateur garbage boys disrespecting your trash?</p>
+        <img style="border-radius:50%;" src="https://media1.giphy.com/media/p39qWGHTpfY0o/giphy.gif?cid=ecf05e47f928b5f6mqfq7o739c6dsh6y8qjtmqe9msgvu2xm&amp;rid=giphy.gif" alt="Freak out gif" />
+        <h3 class="distance-up"><strong>Us too!</strong> <br /></h3>
+        <p class="distance-down">Scroll down to meet our state of the art Collection Specialists!</p>
+    </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to TrashCo</h1>
-    <p>Scroll down to meet our state of the art team of collection agents!</p>
-</div>
+    <div class="row top-line">
+        <div class="col-md-4">
+            <img class="worker-left" src="https://lh3.googleusercontent.com/proxy/tkiigcHJmUtp7A54SheIj-kFs71_lN3p86o_QGUioBxWAFuu6V3w42PW1BNKabgVG147kzGzjyAc09YdZUEZVsBB" />
+        </div>
+        <div class="col-md-2">
+            <br />
+            <p>This is <em>David</em>. He's our number one collection specialist. If you're lucky, you'll get to see him in action!</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-2">
+            <br />
+            <br />
+            <p>This is <em>Andy</em>. Seeing him in action is like seeing a yellow lime..Possible but not likely.</p>
+        </div>
+        <div class="col-md-4">
+            <img class="worker-right" style="float: right;" src="https://thumbs.dreamstime.com/b/garbage-man-carrying-junk-over-shoulder-vector-illustration-professional-plastic-cartoon-mascot-154334215.jpg" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <img class="worker-left" src="https://lh3.googleusercontent.com/proxy/RBl4KprvWLux-CDIk5yHY-jBOBQkFW9Djkuf5aPVQz3b2CSCingmOGYmlP4iSX6IlwUn2E5xwaAsSRjVl5lpkVFRvmh6MUo" />
+        </div>
+        <div class="col-md-2">
+            <br />
+            <br />
+            <p>This is <em>Gerry</em>. There's no one better to handle your waste than him. He's been the king of collections since the first Depression!</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-2">
+            <br />
+            <br />
+            <p>This is <em>David</em>..He takes Covid very seriously. You might see him wiping down your can before he collects. <strong>Just to be <em>safe</em></strong></p>
+        </div>
+        <div class="col-md-4">
+            <img class="worker-right" style="float: right;" src="https://image.freepik.com/free-vector/male-cleaner-holding-tongs-garbage-bag_43633-7162.jpg" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <p><a href="https://localhost:44372/Identity/Account/Register">Register Here</a> to start your professional pick-ups <strong>Today</strong>!</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <p>Already have an account? <a href="https://localhost:44372/Identity/Account/Login">Log In</a> to schedule your next pick-up!</p>
+        </div>
+    </div>
+</body>
