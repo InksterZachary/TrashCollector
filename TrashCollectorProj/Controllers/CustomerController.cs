@@ -5,12 +5,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TrashCollectorProj.Data;
 
 namespace TrashCollectorProj.Controllers
 {
-        [Authorize(Roles = "Customer")]
-        public class CustomerController : Controller
+    [Authorize(Roles = "Customer")]
+    public class CustomerController : Controller
     {
+        private ApplicationDbContext _context;
+        public CustomerController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         // GET: CustomerController
         public ActionResult Index()
         {
