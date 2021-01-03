@@ -8,71 +8,120 @@
  <!DOCTYPE html>
  <head>
      <title>Employee Home Page</title>
+     <style>
+         #map {
+             width: 80%;
+             height: 100%;
+         }
+     </style>
+     <script defer
+             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZsZWgM56erylxIZWlVvWlCUS_bEpcQac&callback=initMap">
+     </script>
+     <script src="./index.js"></script>
+     <script>
+         function initMap() {
+             const wisconsin = { lat: 43.7844, lng: 88.7879 };
+             const map = new google.maps.Map(document.getElementById("map"), {
+                 zoom: 4,
+                 center: wisconsin,
+             });
+             const marker = new google.maps.Marker({
+                 position: wisconsin,
+                 map: map,
+             });
+         }
+     </script>
  </head>
  <body>
      <div class="row">
-        <div class="col-md-6">
-            <div>
-                <h1 class="text-center"style="border-bottom:2px solid #212121">My Schedule</h1>
-                <p>
-                    <ul class="nav nav-pills">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sort By</a>
-                            <div class="dropdown-menu" style="">
-                                <a class="dropdown-item" href="#">Zipcode</a>
-                                <a class="dropdown-item" href="#">City</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Week Day</a>
-                            <div class="dropdown-menu" style="">
-                                <a class="dropdown-item" href="#">Monday</a>
-                                <a class="dropdown-item" href="#">Tuesday</a>
-                                <a class="dropdown-item" href="#">Wednesday</a>
-                                <a class="dropdown-item" href="#">Thursday</a>
-                                <a class="dropdown-item" href="#">Friday</a>
-                            </div>
-                        </li>
-                    </ul>
-                </p>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.firstName)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.lastName)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.IdentityUser)
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.firstName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.lastName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.IdentityUser.Id)
-                                </td>
-                                <td>
-                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </div>
+         <div class="col-md-6">
+             <div>
+                 <h1 class="text-center" style="border-bottom:2px solid #212121">Today's Route</h1>
+                 <p>
+                     <ul class="nav nav-pills">
+                         <li class="nav-item dropdown">
+                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sort By</a>
+                             <div class="dropdown-menu" style="">
+                                 <a class="dropdown-item" href="#">Zipcode</a>
+                                 <a class="dropdown-item" href="#">City</a>
+                             </div>
+                         </li>
+                         <li class="nav-item dropdown">
+                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Week Day</a>
+                             <div class="dropdown-menu" style="">
+                                 <a class="dropdown-item" href="#">Monday</a>
+                                 <a class="dropdown-item" href="#">Tuesday</a>
+                                 <a class="dropdown-item" href="#">Wednesday</a>
+                                 <a class="dropdown-item" href="#">Thursday</a>
+                                 <a class="dropdown-item" href="#">Friday</a>
+                             </div>
+                         </li>
+                     </ul>
+                 </p>
+                 <table class="table">
+                     <thead>
+                         <tr>
+                             <th>
+                                 @Html.DisplayNameFor(model => model.firstName)
+                             </th>
+                             <th>
+                                 @Html.DisplayNameFor(model => model.lastName)
+                             </th>
+                             <th>
+                                 @Html.DisplayNameFor(model => model.IdentityUser)
+                             </th>
+                             <th></th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         @foreach (var item in Model)
+                         {
+                             <tr>
+                                 <td>
+                                     @Html.DisplayFor(modelItem => item.firstName)
+                                 </td>
+                                 <td>
+                                     @Html.DisplayFor(modelItem => item.lastName)
+                                 </td>
+                                 <td>
+                                     @Html.DisplayFor(modelItem => item.IdentityUser.Id)
+                                 </td>
+                                 <td>
+                                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                 </td>
+                             </tr>
+                         }
+                     </tbody>
+                 </table>
+             </div>
+         </div>
+         <div class="col-md-6 text-center"style="margin-bottom:40%;">
+             <div>
+                 <h1 style="border-bottom:2px solid #212121">My Schedule</h1>
+                 <h4 class="text-center"style="color:#8ecccc;">Week of 01/04/2021</h4>
+                 <table class="col-md-12">
+                     <tr style="background-color:#50717b;">
+                         <td>Monday</td>
+                         <td>7:30am-7:30pm</td>
+                     </tr>
+                     <tr style="background-color:#212121;">
+                         <td>Tuesday</td>
+                         <td>7:30am-7:30pm</td>
+                     </tr>
+                     <tr style="background-color:#50717b;">
+                         <td>Wednesday</td>
+                         <td>7:30am-7:30pm</td>
+                     </tr>
+                     <tr style="background-color:#212121;">
+                         <td>Friday</td>
+                         <td>7:30am-7:30pm</td>
+                     </tr>
+                 </table>
+             </div>
+             <br />
+             <div id="map"></div>
+         </div>
      </div> 
  </body>
