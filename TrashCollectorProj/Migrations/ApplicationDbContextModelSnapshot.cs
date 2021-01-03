@@ -48,15 +48,15 @@ namespace TrashCollectorProj.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9bde55c9-8933-4369-a2dc-8a9c0299d911",
-                            ConcurrencyStamp = "3765657c-27c8-4c74-8e4d-ca5f831d74ec",
+                            Id = "39de64e7-efe2-48d4-b3a4-4f709881d8ab",
+                            ConcurrencyStamp = "1bdfe843-1ac7-4784-abf6-cbbc56232c49",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         },
                         new
                         {
-                            Id = "4fe5155a-15b5-4138-9bc9-92cb7696a0af",
-                            ConcurrencyStamp = "d6a4d031-17a7-4da6-aace-2f4bd8202f47",
+                            Id = "211a2769-e51f-4e3b-b4a7-75c37f1705fd",
+                            ConcurrencyStamp = "ba73617c-f2e2-4d7c-a128-aad33ed7b626",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
@@ -304,6 +304,27 @@ namespace TrashCollectorProj.Migrations
                     b.HasIndex("IdentityUserId");
 
                     b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("TrashCollectorProj.Models.Pickup", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Date")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdentityUser")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Time")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Pickups");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

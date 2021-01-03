@@ -1,4 +1,4 @@
-﻿@*@model IEnumerable<TrashCollectorProj.Models.Pickup>*@
+﻿@model IEnumerable<TrashCollectorProj.Models.Pickup>
 
 @{
     ViewData["Title"] = "Index";
@@ -6,61 +6,60 @@
 }
 
 <!DOCTYPE html>
-
 <head>
     <title>Customer Home Page</title>
 </head>
-
-<div class="row">
-    <div style="border-right:4px solid #212121" class="col-md-6">
-        <h2 style="margin-top:50px; border-bottom:solid;" class="text-center">My Pick-Up History</h2>
-        <br />
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        Date
-                    </th>
-                    <th>
-                        Time
-                    </th>
-                    <th class="text-right">
-                        Cost
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @*@foreach (Pickup pickup in Model)
-                {
+<body>
+    <div class="row">
+        <div style="border-right:4px solid #212121" class="col-md-6">
+            <h2 style="margin-top:50px; border-bottom:solid;" class="text-center">My Pick-Up History</h2>
+            <br />
+            <table class="table">
+                <thead>
                     <tr>
-                        <td>pickup.Date</td>
-                        <td>pickup.Time</td>
-                        <td style="color:green;">$75</td>
+                        <th>
+                            Date
+                        </th>
+                        <th>
+                            Time
+                        </th>
+                        <th class="text-right">
+                            Cost
+                        </th>
                     </tr>
-                }*@
-            </tbody>
-        </table>
-        <p class="justify-content-end"><a href="">View My Bill</a></p>
-    </div>
-    <div style="margin-top:50px;" class="text-center col-md-6">
-        <h2 style="border-bottom:solid;">Upcoming Pick-Up</h2>
-        <h3 style="color:#8ecccc; margin:30px;">This is where DATE goes</h3>
-        <h4 style="color:#50717b;">This is where TIME goes</h4>
-        <div style="margin-top:100px" class="row">
-            <div class="col-md-6">
-                <a href="">Add Pick-Up</a>
-                <br />
-                <img style="height:80%; width:70%; padding-top:20px;" src="~/images/Trash.png" />
-            </div>
-            <div class="col-md-6">
-                <a href="">Reschedule Pick-Up</a>
-                <br />
-                <img style="height:80%; width:70%; padding-top:20px;" src="~/images/Trash.png" />
-            </div>
-            <div class="col-md-12">
-                <p><em>Reducing your carbon footprint?</em><br /><a href="">Click Here</a><br />to suspend pick-ups.</p>
+                </thead>
+                <tbody>
+                    @*@foreach (Pickup pickup in Model)
+                    {
+                        <tr>
+                            <td>pickup.Date</td>
+                            <td>pickup.Time</td>
+                            <td style="color:green;">$75</td>
+                        </tr>
+                    }*@
+                </tbody>
+            </table>
+            <p class="justify-content-end"><a href="">View My Bill</a></p>
+        </div>
+        <div style="margin-top:50px;" class="text-center col-md-6">
+            <h2 style="border-bottom:solid;">Upcoming Pick-Up</h2>
+            <h3 style="color:#8ecccc; margin:30px;">This is where DATE goes</h3>
+            <h4 style="color:#50717b;">This is where TIME goes</h4>
+            <div style="margin-top:100px" class="row">
+                <div class="col-md-6">
+                    <a href="">Add Pick-Up</a>
+                    <br />
+                    <img style="height:80%; width:70%; padding-top:20px;" src="~/images/Trash.png" />
+                </div>
+                <div class="col-md-6">
+                    <a href="">Reschedule Pick-Up</a>
+                    <br />
+                    <img style="height:80%; width:70%; padding-top:20px;" src="~/images/Trash.png" />
+                </div>
+                <div class="col-md-12">
+                    <p><em>Reducing your carbon footprint?</em><br /><a href="">Click Here</a><br />to suspend pick-ups.</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
+</body>

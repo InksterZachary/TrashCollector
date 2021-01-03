@@ -47,6 +47,21 @@ namespace TrashCollectorProj.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Pickups",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Date = table.Column<int>(nullable: false),
+                    Time = table.Column<int>(nullable: false),
+                    IdentityUser = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pickups", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -220,12 +235,12 @@ namespace TrashCollectorProj.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "9bde55c9-8933-4369-a2dc-8a9c0299d911", "3765657c-27c8-4c74-8e4d-ca5f831d74ec", "Employee", "EMPLOYEE" });
+                values: new object[] { "39de64e7-efe2-48d4-b3a4-4f709881d8ab", "1bdfe843-1ac7-4784-abf6-cbbc56232c49", "Employee", "EMPLOYEE" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "4fe5155a-15b5-4138-9bc9-92cb7696a0af", "d6a4d031-17a7-4da6-aace-2f4bd8202f47", "Customer", "CUSTOMER" });
+                values: new object[] { "211a2769-e51f-4e3b-b4a7-75c37f1705fd", "ba73617c-f2e2-4d7c-a128-aad33ed7b626", "Customer", "CUSTOMER" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Addresses_CustomerId",
@@ -304,6 +319,9 @@ namespace TrashCollectorProj.Migrations
 
             migrationBuilder.DropTable(
                 name: "Employees");
+
+            migrationBuilder.DropTable(
+                name: "Pickups");
 
             migrationBuilder.DropTable(
                 name: "Customers");

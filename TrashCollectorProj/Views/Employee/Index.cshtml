@@ -5,50 +5,74 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
- <h1>Index</h1>
- <div class="row">
-    <div class="col-md-6">
-        <div>
-            <p>
-                <a asp-action="Create">Create New</a>
-            </p>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.firstName)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.lastName)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.IdentityUser)
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
+ <!DOCTYPE html>
+ <head>
+     <title>Employee Home Page</title>
+ </head>
+ <body>
+     <div class="row">
+        <div class="col-md-6">
+            <div>
+                <h1 class="text-center"style="border-bottom:2px solid #212121">My Schedule</h1>
+                <p>
+                    <ul class="nav nav-pills">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sort By</a>
+                            <div class="dropdown-menu" style="">
+                                <a class="dropdown-item" href="#">Zipcode</a>
+                                <a class="dropdown-item" href="#">City</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Week Day</a>
+                            <div class="dropdown-menu" style="">
+                                <a class="dropdown-item" href="#">Monday</a>
+                                <a class="dropdown-item" href="#">Tuesday</a>
+                                <a class="dropdown-item" href="#">Wednesday</a>
+                                <a class="dropdown-item" href="#">Thursday</a>
+                                <a class="dropdown-item" href="#">Friday</a>
+                            </div>
+                        </li>
+                    </ul>
+                </p>
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.firstName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.lastName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IdentityUser.Id)
-                            </td>
-                            <td>
-                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                            </td>
+                            <th>
+                                @Html.DisplayNameFor(model => model.firstName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.lastName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IdentityUser)
+                            </th>
+                            <th></th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.firstName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.lastName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IdentityUser.Id)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
- </div> 
+     </div> 
+ </body>
