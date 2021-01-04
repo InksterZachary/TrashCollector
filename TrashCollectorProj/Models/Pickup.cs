@@ -17,7 +17,7 @@ namespace TrashCollectorProj.Models
         public int Date { get; set; }
         public int Time { get; set; }
         [ForeignKey("Customer")]
-        public int IdentityUser { get; set; }
-        public Customer customer { get; set; }
+        public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
     }
 }

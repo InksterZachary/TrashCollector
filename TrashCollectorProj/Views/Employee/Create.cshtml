@@ -1,13 +1,13 @@
-﻿@model TrashCollectorProj.Models.Customer
+﻿@model TrashCollectorProj.Models.Employee
 
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Customer Information</h1>
+<h1>Create</h1>
 
-<h4>Customer</h4>
+<h4>Employee</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -23,7 +23,6 @@
                 <input asp-for="lastName" class="form-control" />
                 <span asp-validation-for="lastName" class="text-danger"></span>
             </div>
-
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

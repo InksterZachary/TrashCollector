@@ -1,4 +1,4 @@
-﻿@model TrashCollectorProj.Models.Pickup
+﻿@model IEnumerable<TrashCollectorProj.Models.Pickup>
 
 @{
     ViewData["Title"] = "Details";
@@ -10,10 +10,30 @@
     <title>Billing</title>
 </head>
 <body>
-    <div class="container-fluid text-center" style="background-size:60%;">
-        <div style="background-color:#8ecccc;">
-            <h3>My monthly billing</h3>
-            <p>solem dips idan</p>
+    <div>
+        <div class="card border-secondary mb-3" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); ">
+            <div class="card-header">My Billing</div>
+            <div class="card-body">
+                <h4 class="card-title">Services received this month</h4>
+                <table>
+                    <tr>
+                        <th>
+                            Serviced
+                        </th>
+                    </tr>
+                    @*@foreach (Pickup pickup in Model)
+                    {
+                        <tr>
+                            <td>pickup.Date</td>
+                            <td>pickup.Time</td>
+                            <td style="color:green;">$75</td>
+                        </tr>
+                    }*@
+                    <tr>
+                        <td>Total:</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </body>

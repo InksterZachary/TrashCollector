@@ -10,7 +10,7 @@ using TrashCollectorProj.Data;
 namespace TrashCollectorProj.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210103013303_initial")]
+    [Migration("20210104210822_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,15 +50,15 @@ namespace TrashCollectorProj.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "39de64e7-efe2-48d4-b3a4-4f709881d8ab",
-                            ConcurrencyStamp = "1bdfe843-1ac7-4784-abf6-cbbc56232c49",
+                            Id = "2655b9bd-1295-4170-9131-0d691e1bc6e1",
+                            ConcurrencyStamp = "9f437ea4-84dd-48e8-a588-5a84fb3e0b63",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         },
                         new
                         {
-                            Id = "211a2769-e51f-4e3b-b4a7-75c37f1705fd",
-                            ConcurrencyStamp = "ba73617c-f2e2-4d7c-a128-aad33ed7b626",
+                            Id = "a6209bf1-d200-41cd-9a10-93bc63b7a2b8",
+                            ConcurrencyStamp = "16b3ce03-81e6-4135-9b8b-9939508a99cb",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
@@ -315,16 +315,18 @@ namespace TrashCollectorProj.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Date")
+                    b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdentityUser")
+                    b.Property<int>("Date")
                         .HasColumnType("int");
 
                     b.Property<int>("Time")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("Pickups");
                 });
@@ -401,6 +403,15 @@ namespace TrashCollectorProj.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
                         .WithMany()
                         .HasForeignKey("IdentityUserId");
+                });
+
+            modelBuilder.Entity("TrashCollectorProj.Models.Pickup", b =>
+                {
+                    b.HasOne("TrashCollectorProj.Models.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

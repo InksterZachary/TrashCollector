@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using TrashCollectorProj.Data;
 using TrashCollectorProj.Models;
@@ -22,8 +23,11 @@ namespace TrashCollectorProj.Controllers
         // GET: CustomerController
         public ActionResult Index()
         {
-            var collections = _context.Pickups.Include(p => p.IdentityUser).ToList();
-            return View(collections);
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var customer = _context.Customers.Where(c => c.IdentityUserId ==
+            userId).FirstOrDefault();
+            var listOfPickups = _context.Pickups.Where(p => p.CustomerId == customer.Id).ToList();
+            return View(listOfPickups);
         }
 
         // GET: CustomerController/Details/5
@@ -41,11 +45,13 @@ namespace TrashCollectorProj.Controllers
         // POST: CustomerController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Pickup pickup)
+        public ActionResult Create(Customer customer)
         {
             try
             {
-                _context.Pickups.Add(pickup); 
+                var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                customer.IdentityUserId = userId;
+                _context.Add(customer);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
@@ -95,6 +101,10 @@ namespace TrashCollectorProj.Controllers
             {
                 return View();
             }
+        }
+        public ActionResult AddPickUp()
+        {
+            return View();
         }
     }
 }
