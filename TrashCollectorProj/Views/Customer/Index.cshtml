@@ -29,17 +29,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @*@foreach (Pickup pickup in Model)
+                    @foreach (Pickup pickup in Model)
                     {
                         <tr>
                             <td>pickup.Date</td>
                             <td>pickup.Time</td>
                             <td style="color:green;">$75</td>
                         </tr>
-                    }*@
+                    }
                 </tbody>
             </table>
-            <p class="justify-content-end"><a href="">View My Bill</a></p>
+            <p class="justify-content-end"><a href="https://localhost:44372/customer/details">View My Bill</a></p>
         </div>
         <div style="margin-top:50px;" class="text-center col-md-6">
             <h2 style="border-bottom:solid;">Upcoming Pick-Up</h2>
@@ -52,7 +52,7 @@
                     <img style="height:80%; width:70%; padding-top:20px;" src="~/images/Trash.png" />
                 </div>
                 <div class="col-md-6">
-                    <a href="">Reschedule Pick-Up</a>
+                    <a href="https://localhost:44372/customer/edit">Reschedule Pick-Up</a>
                     <br />
                     <img style="height:80%; width:70%; padding-top:20px;" src="~/images/Trash.png" />
                 </div>

@@ -22,8 +22,8 @@ namespace TrashCollectorProj.Controllers
         // GET: CustomerController
         public ActionResult Index()
         {
-            //var collections = _context.Pickups.Include(p => p.IdentityUser).ToList();
-            return View();
+            var collections = _context.Pickups.Include(p => p.IdentityUser).ToList();
+            return View(collections);
         }
 
         // GET: CustomerController/Details/5
