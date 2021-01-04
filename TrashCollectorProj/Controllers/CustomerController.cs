@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TrashCollectorProj.Data;
+using TrashCollectorProj.Models;
 
 namespace TrashCollectorProj.Controllers
 {
@@ -40,10 +41,12 @@ namespace TrashCollectorProj.Controllers
         // POST: CustomerController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Pickup pickup)
         {
             try
             {
+                _context.Pickups.Add(pickup); 
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch

@@ -1,0 +1,38 @@
+﻿@model TrashCollectorProj.Models.Pickup
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <h1 class="text-center" style="border-bottom:2px solid #50717b;"><strong>Suspend Services</strong></h1>
+
+    <p style="color:#8ecccc;">Please select the dates through which you would like to suspend your services.</p>
+    <div>
+        <h4>Pickup</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                Begin suspension: <input asp-for="Date" type="date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+            <dt class="col-sm-2">
+                End suspension: <input asp-for="Date" type="date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+        </dl>
+    
+        <form asp-action="Delete" style="margin-bottom:18%;">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Suspend" class="btn btn-success" /> |
+            <a asp-action="Index">Back to List</a>
+        </form>
+    </div>
+</body>

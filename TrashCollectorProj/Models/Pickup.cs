@@ -11,6 +11,9 @@ namespace TrashCollectorProj.Models
     {
         [Key]
         public int Id { get; set; }
+        [DataType(DataType.Date)]
+        [Display(Name = "Pick-up Date")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public int Date { get; set; }
         public int Time { get; set; }
         [ForeignKey("Customer")]
